@@ -1,0 +1,433 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    user-select: none;
+    font-weight: normal;
+}
+#dashboardNameText{
+    width: 50%;
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+    border: solid 1px #bbb;
+    font-size: 16px;
+    border-radius: 20px;
+    display: none;
+}
+button{
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+}
+button:hover{
+    filter: brightness(110%);
+}
+#addLinkWrapper > h3, #addLinkWrapper > h4, .link > p, .link > h2, .link > img{
+    pointer-events: none;
+}
+.centeredElement{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header, footer{
+    background: #000000d2;
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+}
+main{
+    text-align: center;
+    padding: 50px 50px 0 50px;
+    background: #e2e2e2dd;
+}
+hr{
+    border: solid 1px #aaa;
+    margin: 20px 0;
+}
+main > h1{
+    padding-top: 50px
+}
+#linksWrapper{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 100px 180px 100px;
+}
+.link{
+    position: relative;
+    width: 250px;
+    height: 150px;
+    gap: 20px;
+    cursor: pointer;
+    padding: 20px 20px 0 20px;
+    background: #fff;
+    border-radius: 20px;
+    transition: transform 0.4s, opacity 0.4s, box-shadow 0.2s;
+}
+.link:hover{
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+.link > p{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #999;
+}
+.link > img{
+    width: 50px;
+    height: 50px;
+}
+.link > h5{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: solid 1px #f21;
+    color: #f21;
+}
+
+#weatherMainWrapper{
+    padding: 50px;
+    justify-content: space-around;
+}
+#weatherSmallContainer{
+    justify-content: space-around;
+    background: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/draw1.webp');
+    background-position: center;
+    width: 60%;
+    height: 250px;
+    border-radius: 30px;
+    border: solid 1px #aaa;
+    overflow: hidden;
+}
+#weatherSmallContainer img{
+    height: 240px;
+}
+#tempLabel{
+    font-size: 70px;
+}
+#cityName{
+    font-size: 40px;
+    color: rgb(186, 83, 255);
+}
+#tempLabel{
+    position: relative;
+}
+#weatherSmallContainer > div:nth-child(1), #weatherSmallContainer > div:nth-child(3){
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50%;
+}
+#cityNamesMainContainer{
+    width: fit-content;
+    background: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/draw1.webp');
+    border-radius: 20px;
+    padding: 30px;
+    display: block;
+}
+#cityNamesMainContainer > input{
+    border-radius: 15px;
+    padding: 15px 0;
+    margin-top: 30px;
+    font-size: 16px;
+    text-align: center;
+    border: solid 1px #333;
+}
+#cityNamesWrapper{
+    max-height: 210px;
+    overflow-y: scroll;
+    padding: 20px;
+}
+#cityNamesWrapper::-webkit-scrollbar{
+    display: none;
+}
+#cityNamesWrapper > p{
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    text-align: center;
+    transition: 0.1s;
+}
+#addMissingCityBtn{
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    background: rgb(32, 149, 208);
+    display: none;
+}
+#cityNamesWrapper > p:hover{
+    box-shadow: 0 0 2px #000, 0 0 4px #000;
+}
+
+
+#addLinkWrapper{
+    position: absolute;
+    width: fit-content;
+    background: #ddd;
+    border: solid 1px #777;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    cursor: pointer;
+    gap: 10px;
+    align-items: center;
+    right: 10px;
+    bottom: 50px;
+}
+#addLinkWrapper > h3{
+    width: 30px;
+    height: 30px;
+    background: #bbb;
+    border-radius: 50%;
+}
+
+#addNewLinkMenu{
+    z-index: 100;
+    position: fixed;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    gap: 5px;
+    display: none;
+    background-color: #ffffffee;
+    border: solid 1px #aaa;
+    padding: 50px 30px 30px 30px;
+    border-radius: 20px;
+}
+#closeNewAddLinkMenu{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    padding: 10px;
+    color: #f21;
+    cursor: pointer;
+}
+#addNewLinkMenu > input{
+    padding: 15px;
+    border: solid 1px #888;
+    width: 100%;
+    border-radius: 15px;
+}
+#addNewLinkMenu > button{
+    background: #5af;
+    padding: 15px 20px;
+    border-radius: 15px;
+    width: 100%;
+}
+#addNewLinkMenu > h2{
+    margin-top: 20px;
+    color: #5af;
+}
+#newLinkIconWrapper{
+    padding: 20px 0;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+#newLinkIconWrapper > img{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: 0.1s
+}
+#newLinkIconWrapper > img:hover{
+    transform: scale(1.1);
+}
+
+
+#newsMainWrapper{
+    padding: 20px 0;
+}
+#newsWrapper{
+    display: grid;
+    grid-template-areas: 'one two two two two two two two two'
+                         'tre tre tre tre tre tre tre tre for'
+                         'fiv six six six six six six six six';
+    gap: 20px;
+    width: 1000px;
+    margin: 30px auto;
+}
+.news{
+    display: flex;
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    max-height: 150px;
+}
+.news > img{
+    border-radius: 15px;
+    object-fit: cover;
+    max-width: 200px;
+}
+.news > div{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+.news h6{
+    color: #555;
+}
+#news1{
+    grid-area: one;
+}
+#news2{
+    grid-area: two;
+}
+#news3{
+    grid-area: tre;
+}
+#news4{
+    grid-area: for;
+}
+#news5{
+    grid-area: fiv;
+}
+#news6{
+    grid-area: six;
+}
+
+
+#noteMainWrapper{
+    position: relative;
+    padding: 40px 0;
+    overflow: hidden;
+}
+#noteWrapper{
+    gap: 50px;
+    flex-wrap: wrap;
+    padding: 40px 0 70px 0;
+}
+.note{
+    position: relative;
+    display: flex;
+    width: 350px;
+    height: 150px;
+    transform-origin: left;
+    transition: 0.2s ease-in-out;
+}
+.note::before{
+    content: "";
+    position: absolute;
+    left: -25px;
+    top: 3px;
+    width: 80px;
+    height: 25px;
+    background: #006bb8c0;
+    transform: rotate(-45deg);
+}
+.note::after{
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 80%;
+    height: 10px;
+    bottom: 0;
+    right: 10px;
+    background: #00000096;
+    transform: rotate(3deg);
+    filter: blur(5px);
+}
+.note > div:nth-child(1){
+    width: 25%;
+    background: #3a94b2;
+    color: #fff;
+}
+.note > div:nth-child(2){
+    flex-direction: column;
+    width: 75%;
+    background: #fff;
+    padding: 30px 10px;
+    gap: 10px;
+}
+.note > div:nth-child(2) > p{
+    font-size: 14px;
+    color: #555;
+    height: 100px;
+    overflow-y: scroll;
+    font-family: 'Shadows Into Light', cursive;
+}
+.note > div:nth-child(2) > p::-webkit-scrollbar{
+    display: none;
+}
+.note > h3{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    padding: 10px;
+    display: none;
+}
+.note:hover > h3{
+    display: block;
+}
+.note > h3 > i{
+    pointer-events: none;
+}
+#notSettingsMenu{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 25px;
+    border-radius: 20px;
+    background: #fff;
+    border: solid 1px #aaa;
+    display: none;
+}
+#notSettingsMenu p{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+    color: #f00;
+}
+#notSettingsMenu > input, #notSettingsMenu > textarea, #notSettingsMenu > button{
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    border: solid 1px #aaa;
+    margin: 2px 0;
+    resize: none;
+}
+#notSettingsMenu > textarea{
+    height: 150px;
+}
+#notSettingsMenu > button{
+    background: #09f;
+}
+#addNewNote{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 40px;
+    border-radius: 50%;
+    background: #888;
+    color: #fff;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+}
+
+footer > button{
+    background: #09f;
+    padding: 20px 30px;
+    border-radius: 15px;
+}

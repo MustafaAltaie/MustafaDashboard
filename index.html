@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Css links -->
+    <link rel="stylesheet" href="indexStyle.css">
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/f80359c2af.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 id="dashboardName">Mustafa Dashboard</h1>
+        <input type="text" id="dashboardNameText" placeholder="Dashboard name">
+    </header>
+    <main>
+        <h1>Mina länkar</h1>
+        <div id="linksWrapper">
+            <div id="addLinkWrapper">
+                <h4>Lägg till länk</h4>
+                <h3 class="centeredElement">+</h3>
+            </div>
+        </div>
+        <hr>
+        <div id="weatherMainWrapper" class="centeredElement">
+            <div id="weatherSmallContainer" class="centeredElement">
+                <div>
+                    <h1 id="weatherConditionLabel"><h1>
+                    <h1 id="tempLabel"></h1>
+                </div>
+                <div>
+                    <img id="weatherImage" src="" alt="">
+                </div>
+                <div>
+                    <h1 id="cityName"></h1>
+                    <h1 id="theTime"></h1>
+                    <h2 id="theDate"></h2>
+                </div>
+            </div>
+            <div id="cityNamesMainContainer">
+                <div id="cityNamesWrapper">
+                    <button id="addMissingCityBtn">Lägg till staden</button>
+                </div> 
+                <input type="text" placeholder="Search for city" id="cityNameText">
+            </div>
+        </div>
+        <hr>
+        <div id="newsMainWrapper">
+            <h1>New York News</h1>
+            <div id="newsWrapper"></div>
+        </div>
+        <hr>
+        <div id="noteMainWrapper">
+            <h1>My Notes</h1>
+            <div id="noteWrapper" class="centeredElement"></div>
+            <h1 id="addNewNote">+</h1>
+            <div id="notSettingsMenu">
+                <p id="closeNotSettingsMenu" class="centeredElement">X</p>
+                <input id="noteTitleText" type="text" placeholder="Note title">
+                <textarea id="noteContentText" type="text" placeholder="Note"></textarea>
+                <button id="addNewNoteBtn">Add note</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <button onclick="fetchImage()">Change Background Image <i class="fas fa-images"></i></button>
+    </footer>
+
+    <div id="addNewLinkMenu" class="centeredElement">
+        <p id="closeNewAddLinkMenu">X</p>
+        <input type="text" placeholder="Länken utan .com eller .se" id="linkText">
+        <input type="text" placeholder="Appnamn" id="linkNameText">
+        <h2>Välj ikon</h2>
+        <div id="newLinkIconWrapper" class="centeredElement"></div>
+        <button onclick="addNewLink()">Lägg till</button>
+    </div>
+
+    <script src="indexScript.js"></script>
+</body>
+</html>
