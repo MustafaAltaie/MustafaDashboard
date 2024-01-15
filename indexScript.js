@@ -166,11 +166,26 @@ linksToLocalStorage();
 
 // Create weather section
 
+
+//Fetch current location
+const http = new XMLHttpRequest();
+
+function getLocation() {
+    navigator.geolocation.getCurrentPosition((position) => {
+        http.open("GET", `https://api-bdc.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`);
+        http.send();
+        http.onreadystatechange = function() {
+            getWeatherApi(JSON.parse(this.responseText).locality);
+        }
+    });
+}
+getLocation();
+
+
 //Fetching API from current weather
 let getWeatherApi = async (city) => {
     let weather = await fetch (`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=9c78af24848df25b49bcd9289652bf85&units=metric`);
     let weatherData = await weather.json();
-    localStorage.cityName = weatherData.name;
     document.getElementById('cityName').textContent = weatherData.name;
     document.getElementById('tempLabel').textContent = Math.round(weatherData.main.temp) + '°';
     document.getElementById('weatherConditionLabel').textContent = weatherData.weather[0].main;
@@ -193,10 +208,6 @@ let getWeatherApi = async (city) => {
     else
     document.getElementById('weatherImage').src = weatherCondition.unone;
 }
-if(localStorage.cityName == undefined || localStorage.cityName == '')
-getWeatherApi('Katrineholm');
-else
-getWeatherApi(localStorage.cityName);
 
 
 // Set the time and date

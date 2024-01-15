@@ -133,7 +133,7 @@ main > h1{
     background: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/draw1.webp');
     border-radius: 20px;
     padding: 30px;
-    display: block;
+    display: none;
 }
 #cityNamesMainContainer > input{
     border-radius: 15px;
